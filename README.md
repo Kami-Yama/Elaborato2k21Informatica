@@ -13,6 +13,7 @@ Il candidato, fatte le opportune ipotesi aggiuntive, sviluppi tutti i seguenti p
 1. *un’analisi della realtà di riferimento ipotizzata descrivendo, per la soluzione proposta:* 
 2.  *architettura di rete e caratteristiche dei sistemi server;* 
 3.  *modalità di comunicazione tra server e dispositivi, protocolli e servizi software per gestire la rete e fornire le pagine;*
-4.  *gestione della sicurezza dei sistemi informatici realizzati o utilizzati; ◦ modello concettuale e logico del database;* 
-5.  *implementazione dello schema logico mediante linguaggio SQL.*
-6. *Implementi una parte significativa del progetto sia per quanto riguarda l’applicazione web (o App per dispositivi mobili Android o IoS), sia per quanto riguarda la configurazione dei servizi e dispositivi di rete.*
+4.  *gestione della sicurezza dei sistemi informatici realizzati o utilizzati;*
+5.  *modello concettuale e logico del database;* 
+6.  *implementazione dello schema logico mediante linguaggio SQL.*
+7. *Implementi una parte significativa del progetto sia per quanto riguarda l’applicazione web (o App per dispositivi mobili Android o IoS), sia per quanto riguarda la configurazione dei servizi e dispositivi di rete.*
