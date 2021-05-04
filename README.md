@@ -1,4 +1,7 @@
-# ***Elaborato di Informatica 2k21***
+# 
+*Since the Plot for the elaborate it's in italian, i will leave the plain text in it's native language.*
+
+***Elaborato di Informatica 2k21***
 
 **Traccia n.ro 3**
 
