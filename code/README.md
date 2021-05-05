@@ -20,6 +20,6 @@
 
 `login.php`: PHP page used for the users to Login in their accounts.
 
-`registrazione.php`: PHP page used to create an account. All the imputs are correctly filtered, so it's impossible to use SQL Injections or other mechanisms for hackings.
+`registrazione.php`: PHP page used to create an account. All the imputs are correctly filtered, so it's impossible to use SQL Injections or other mechanisms for hacking the site.
 
 
