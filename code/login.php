@@ -20,7 +20,8 @@
 <?php
 
     if((isset($_SESSION["sessionTime"]))){
-        if(time() - $_SESSION["sessionTime"] > 3600){
+        if((time() - $_SESSION["sessionTime"]) < 3600){
+            echo $_SESSION["emailUtente"];
             header("Location: azione.php");
         }
         else{
@@ -65,7 +66,7 @@
     if(isset($_POST["email"]) && isset($_POST["password"])){
         if(checkIfLoginExists($_POST["email"],$_POST["password"])){
             $_SESSION["emailUtente"] = $_POST["email"];
-            $_SESSION["sessionTime"] = time();
+            $_SESSION["sessionTime"] = time() + 3600;
             header("Location: azione.php");
         }
     }

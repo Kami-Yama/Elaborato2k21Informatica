@@ -92,5 +92,38 @@ function checkIfAdmin($emailUtente){
 
 }
 
+function checkIfLoginAvaiable(){
+
+    $check = false;
+    if((isset($_SESSION["emailUtente"]))){
+        if(time() - $_SESSION["sessionTime"] > 3600){
+            $check = true;
+            echo $check;
+        }
+        else{
+            session_destroy();
+            echo $check;
+        }
+    }
+
+}
+
+function getLoginSessionInfo($emailCheck){
+    
+
+    require("config.php");
+    $mysqli = new mysqli($host, $username, $password, $db_name);
+    $mysqli->set_charset("utf8");
+    $risultato = $mysqli->query("select nome,cognome from CLIENTI where email = '$emailCheck'"); 
+        
+    $righe = $risultato->fetch_row();
+        
+    return $righe;
+            
+    $risultato->close();
+    $mysqli->close();
+
+}
+
 
 ?>

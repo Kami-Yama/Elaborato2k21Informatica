@@ -1,7 +1,7 @@
 create table CLIENTI
 (
-
-    email VARCHAR(50) NOT NULL primary key,
+    id_cliente INT AUTO_INCREMENT NOT NULL primary key,
+    email VARCHAR(50) NOT NULL,
     nome VARCHAR(30) NOT NULL,
     cognome VARCHAR(30) NOT NULL,
     password VARCHAR(200) NOT NULL,
@@ -15,13 +15,13 @@ create table PRENOTAZIONI(
 
     id_prenotazione INT AUTO_INCREMENT NOT NULL primary key,
     data_inizio TIMESTAMP DEFAULT NOW(),
-    data_fine TIMESTAMP DEFAULT NOW(),
-    email VARCHAR(50) NOT NULL,
-    postazione_pren CHAR(1),
+    n_ore INT NOT NULL,
+    id_cliente INT NOT NULL,
+    postazione_pren INT NOT NULL,
     data_pren TIMESTAMP DEFAULT NOW(),
     is_closed BOOLEAN,
 
-    foreign key(email) references CLIENTI (email)
+    foreign key(id_cliente) references CLIENTI (id_cliente)
     
 );
 
@@ -29,13 +29,13 @@ create table PRENOTAZIONI(
 create table PRESENZE(
 
     id_presenza INT AUTO_INCREMENT NOT NULL primary key, 
-    email VARCHAR(50) NOT NULL,
+    id_cliente INT NOT NULL,
     data_inizio TIMESTAMP NOT NULL DEFAULT NOW(),
     data_fine TIMESTAMP NOT NULL DEFAULT NOW(),
     pres_isBYOD BOOLEAN NOT NULL,
     id_prenotazione INT NOT NULL,
 
-    foreign key (email) references CLIENTI (email),
+    foreign key(id_cliente) references CLIENTI (id_cliente),
     foreign key (id_prenotazione) references PRENOTAZIONI (id_prenotazione)
 
 );
@@ -55,11 +55,11 @@ create table EVENTI(
 create table PARTECIPANTI(
 
     id_evento INT NOT NULL,
-    email VARCHAR(50) NOT NULL,
+    id_cliente INT NOT NULL,
     haPagato BOOLEAN,
     haPartecipato BOOLEAN,
     posizionamento VARCHAR(4),
 
-    primary key(id_evento, email)
+    primary key(id_evento, id_cliente)
 
 );

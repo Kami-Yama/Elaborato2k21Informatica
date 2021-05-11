@@ -29,23 +29,19 @@
 </style>
 
 <body class="w3-sand contenitore">
-    <input style="margin-top:30px;border:1px solid black;" type="button" value="Prenota" class="w3-button" onclick="home()">
+
+    <a style="margin-top:30px;border:1px solid black;" type="button" class="w3-button" href="prenota.html">Prenota</a>
+    <a style="margin-top:30px;border:1px solid black;" type="button" class="w3-button" href="index.php">Ritorna Indietro</a>
+    <a style="margin-top:30px;border:1px solid black;" type="button" class="w3-button" href="logout.php">Logout</a>
 
 <?php
 
     require("functions.php");
     if(isset($_SESSION["emailUtente"]) && checkIfAdmin($_SESSION["emailUtente"])){
-        echo '<input style="margin-top:30px;border:1px solid black;" type="button" value="Amministra" class="w3-button" onclick="amministra()">';
+        echo '<a style="margin-top:30px;border:1px solid black;" type="button" class="w3-button" href="adminPanel.php">Amministra</a>';
     }
 
 ?>
 </body>
-<script>
-    function home(){
-        window.location.href = "doPrenotazione.html";
-    }
-    function amministra(){
-        window.location.href = "amministra.html";
-    }
-</script>
+
 </html>
