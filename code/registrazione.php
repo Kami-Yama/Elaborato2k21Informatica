@@ -17,15 +17,23 @@
         display: flex;
         flex-direction: column;
     }
+    .contenitore2{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
 </style>
 
 <body class="w3-sand">
-    <h1 style="margin-left: 10px;">
-        Registrati!
-    </h1>
-    <h3 style="margin-left: 10px;">
-        è gratis dopotutto...
-    </h3>
+    <div class="contenitore2">
+        <h1 style="margin-left: 10px;">
+            Registrati! <span style="font-size: 23px;">è gratis dopotutto...</span>
+        </h1>
+        <a type="button" style="border:1px solid black;margin-right: 20px;" class="w3-button" href="login.php">Torna al Login</a>
+    </div>
+
+    <hr style="border:1px solid black;"></hr>
     <div id="errore">
     </div>
     <form id="registra" action="" method="POST" class="contenitore" style="margin-left: 10px;">

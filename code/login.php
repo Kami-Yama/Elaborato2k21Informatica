@@ -39,16 +39,23 @@
         align-items: center;
         margin-top: 100px;
     }
-    .backButton{
-        margin-top: 20px;
-        border: 1px solid black;
-        margin-left: 1750px;
+    .contenitore2{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
     }
 
 </style>
 
 <body class="w3-sand">
-    <input type="button" name="goBack" value="Torna Indietro" class="w3-button backButton" onclick="tornaIndietro()">
+    <div class="contenitore2">
+        <div>
+        </div>
+        <a type="button" style="border:1px solid black;margin-right: 20px;margin-top: 10px;" class="w3-button" href="index.php">Torna alla Home</a>
+    </div>
+    <hr style="border:1px solid black;"></hr>
+
     <form action="" method="POST" class="contenitore">
         <label style="margin-top: 100px;" class="w3-label">Email</label>
         <input class="w3-text" type="text" name="email" placeholder="Inserisci la tua Email" style="width:20%;" required>

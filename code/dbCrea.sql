@@ -15,7 +15,7 @@ create table PRENOTAZIONI(
 
     id_prenotazione INT AUTO_INCREMENT NOT NULL primary key,
     data_inizio TIMESTAMP DEFAULT NOW(),
-    n_ore INT NOT NULL,
+    data_fine TIMESTAMP DEFAULT NOW(),
     id_cliente INT NOT NULL,
     postazione_pren INT NOT NULL,
     data_pren TIMESTAMP DEFAULT NOW(),

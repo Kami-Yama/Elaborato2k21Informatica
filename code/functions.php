@@ -125,5 +125,71 @@ function getLoginSessionInfo($emailCheck){
 
 }
 
+function checkIfPcAvaiable($data,$ora,$dataF,$oraF){
+
+    require("config.php");
+    $mysqli = new mysqli($host, $username, $password, $db_name);
+    $mysqli->set_charset("utf8");
+    $dataInizio = $data." ".$ora;
+    $dataFine = $dataF." ".$oraF;
+    $risultato = $mysqli->query("select postazione_pren from PRENOTAZIONI where data_inizio = '$dataInizio' and data_fine <= '$dataFine'"); 
+    
+    $i=0;
+    while($riga = $risultato->fetch_row())
+    {
+        $i++;
+        if($i == 10)
+            $i = -1;
+    }
+
+    $risultato->close();
+    $mysqli->close();
+
+    return $i;
+}
+
+function insertPren($dataInizio,$oraInizio,$dataFine,$oraFine,$postazione){
+    require("config.php");
+    //sanitize input
+    $id_cliente = getIdBySession();
+    $dataInizioC = $dataInizio." ".$oraInizio;
+    $dataFineC = $dataFine." ".$oraFine;
+    $mysqli = new mysqli($host, $username, $password, $db_name);
+
+    if (!$mysqli->connect_error)
+    {		
+        $mysqli->set_charset("utf8"); 			
+
+        $sql = "insert into PRENOTAZIONI (data_inizio,data_fine,id_cliente,postazione_pren,data_pren,is_closed) values ('$dataInizioC','$dataFineC','$id_cliente','$postazione', NOW(), FALSE)";
+		
+        $mysqli->query($sql);
+
+        echo $dataInizioC."|".$dataFineC."|".$id_cliente."|".$postazione;
+
+        $mysqli->close();
+
+    }
+
+    header("Location: endPrenotazione.html");
+}
+
+function getIdBySession(){
+
+    session_start();
+    require("config.php");
+    $mysqli = new mysqli($host, $username, $password, $db_name);
+    $mysqli->set_charset("utf8");
+    $email = $_SESSION["emailUtente"];
+    $risultato = $mysqli->query("select id_cliente from CLIENTI where email='$email'"); 
+
+    $riga = $risultato->fetch_row();
+
+    $risultato->close();
+    $mysqli->close();
+    session_abort();
+    return $riga[0];
+
+}
+
 
 ?>

@@ -30,8 +30,8 @@
 
 <body class="w3-sand contenitore">
 
-    <a style="margin-top:30px;border:1px solid black;" type="button" class="w3-button" href="prenota.html">Prenota</a>
-    <a style="margin-top:30px;border:1px solid black;" type="button" class="w3-button" href="index.php">Ritorna Indietro</a>
+    <a style="margin-top:30px;border:1px solid black;" type="button" class="w3-button" href="prenota.php">Prenota</a>
+    <a style="margin-top:30px;border:1px solid black;" type="button" class="w3-button" href="index.php">Ritorna Alla Home</a>
     <a style="margin-top:30px;border:1px solid black;" type="button" class="w3-button" href="logout.php">Logout</a>
 
 <?php
