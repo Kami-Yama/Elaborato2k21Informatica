@@ -22,4 +22,10 @@
 
 `registrazione.php`: PHP page used to create an account. All the imputs are correctly filtered, so it's impossible to use SQL Injections or other mechanisms for hacking the site.
 
+`logout.php`: Function for logging out
+
+`prenota.php`: Page of related to the prenotations of the site.
+
+`endPrenotazione.html`: Redirect page at the ending of a prenotation.
+
 
