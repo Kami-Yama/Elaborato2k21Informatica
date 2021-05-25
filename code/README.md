@@ -28,4 +28,10 @@
 
 `endPrenotazione.html`: Redirect page at the ending of a prenotation.
 
+`admin.php`: functions related to the adminPanel
+
+`adminPanel.php`: administrator panel, which you can access if you're in the array contained in `action.php`
+
+`adminStyles.css` : css for the administration Panel
+
 
