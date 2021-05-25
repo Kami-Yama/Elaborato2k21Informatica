@@ -1,6 +1,6 @@
 ﻿***Documentation of The Site***
 
-*PS: The visuals of the site AREN'T DEVELOPED! This is just a prototype of the site just for making the client understand how it will work.*
+*PS: The visuals of the site AREN'T DEVELOPED! This is just a prototype of the site just for making the customer understand how it will work.*
 
 `index.html`: Home of the site. In here you can start seeing the various buttons and interact with the site. 
 
