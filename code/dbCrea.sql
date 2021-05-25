@@ -11,17 +11,37 @@ create table CLIENTI
     
 );
 
+create table COMPUTER(
+
+    postazione INT NOT NULL AUTO_INCREMENT,
+
+    primary key(postazione)
+
+);
+
+insert into COMPUTER values();
+insert into COMPUTER values();
+insert into COMPUTER values();
+insert into COMPUTER values();
+insert into COMPUTER values();
+insert into COMPUTER values();
+insert into COMPUTER values();
+insert into COMPUTER values();
+insert into COMPUTER values();
+insert into COMPUTER values();
+
 create table PRENOTAZIONI(
 
     id_prenotazione INT AUTO_INCREMENT NOT NULL primary key,
     data_inizio TIMESTAMP DEFAULT NOW(),
     data_fine TIMESTAMP DEFAULT NOW(),
     id_cliente INT NOT NULL,
-    postazione_pren INT NOT NULL,
+    postazione INT NOT NULL,
     data_pren TIMESTAMP DEFAULT NOW(),
     is_closed BOOLEAN,
 
-    foreign key(id_cliente) references CLIENTI (id_cliente)
+    foreign key(id_cliente) references CLIENTI (id_cliente),
+    foreign key(postazione) references COMPUTER (postazione)
     
 );
 
@@ -33,10 +53,8 @@ create table PRESENZE(
     data_inizio TIMESTAMP NOT NULL DEFAULT NOW(),
     data_fine TIMESTAMP NOT NULL DEFAULT NOW(),
     pres_isBYOD BOOLEAN NOT NULL,
-    id_prenotazione INT NOT NULL,
 
-    foreign key(id_cliente) references CLIENTI (id_cliente),
-    foreign key (id_prenotazione) references PRENOTAZIONI (id_prenotazione)
+    foreign key(id_cliente) references CLIENTI (id_cliente)
 
 );
 
@@ -60,6 +78,16 @@ create table PARTECIPANTI(
     haPartecipato BOOLEAN,
     posizionamento VARCHAR(4),
 
-    primary key(id_evento, id_cliente)
+    primary key(id_evento, id_cliente),
+    foreign key (id_evento) references EVENTI (id_evento),
+    foreign key (id_cliente) references CLIENTI (id_cliente)
 
 );
+
+
+
+
+
+
+
+

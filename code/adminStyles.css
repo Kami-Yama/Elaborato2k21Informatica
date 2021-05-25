@@ -1,0 +1,33 @@
+
+.flexbox{
+    display: flex; 
+    flex-direction: row; 
+    align-items: center;
+}
+
+.containerInfo{
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns: 120px;
+    height: 700px;
+    grid-template-rows: 25% 25% 25% 25%;
+}
+
+.boxGrid{
+    border: 1.5px solid black;
+}
+
+.container{
+    width: 98%;
+    margin-right: auto;
+}
+
+.checkBox{
+    justify-self: right;
+}

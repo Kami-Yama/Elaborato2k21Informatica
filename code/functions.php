@@ -50,7 +50,7 @@ function checkIfLoginExists($email, $passwordSend){
     require("config.php");
     $mysqli = new mysqli($host, $username, $password, $db_name);
     $mysqli->set_charset("utf8");
-    $risultato = $mysqli->query("select email,password from CLIENTI"); 
+    $risultato = $mysqli->query("select email,password from CLIENTI where sospensione <> '1'"); 
     $errorType = 1;
 
     while ($riga = $risultato->fetch_row())
@@ -68,7 +68,7 @@ function checkIfLoginExists($email, $passwordSend){
     }
 
     if($errorType == 1)
-        echo '<strong class="contenitore">ERRORE: L'."'".'account non è Registrato!</strong>';
+        echo '<strong class="contenitore">ERRORE: L\'account non è Registrato oppure è stato sospeso! In caso credi sia stato sospeso, contattaci al nostro Store.</strong>';
     
     $risultato->close();
     $mysqli->close();
@@ -132,20 +132,14 @@ function checkIfPcAvaiable($data,$ora,$dataF,$oraF){
     $mysqli->set_charset("utf8");
     $dataInizio = $data." ".$ora;
     $dataFine = $dataF." ".$oraF;
-    $risultato = $mysqli->query("select postazione_pren from PRENOTAZIONI where data_inizio = '$dataInizio' and data_fine <= '$dataFine'"); 
-    
-    $i=0;
-    while($riga = $risultato->fetch_row())
-    {
-        $i++;
-        if($i == 10)
-            $i = -1;
-    }
+    $risultato = $mysqli->query("select postazione from COMPUTER where postazione NOT IN(select postazione from PRENOTAZIONI where ((data_inizio >= '$dataInizio' AND data_inizio < '$dataFine') OR (data_fine <= '$dataFine' AND data_fine >= '$dataInizio')) OR (data_inizio < '$dataInizio' AND data_fine > '$dataFine')) order by postazione limit 1"); 
 
+    $ritorno = ($risultato -> fetch_row())[0];
     $risultato->close();
     $mysqli->close();
 
-    return $i;
+    return $ritorno;
+    
 }
 
 function insertPren($dataInizio,$oraInizio,$dataFine,$oraFine,$postazione){
@@ -160,7 +154,7 @@ function insertPren($dataInizio,$oraInizio,$dataFine,$oraFine,$postazione){
     {		
         $mysqli->set_charset("utf8"); 			
 
-        $sql = "insert into PRENOTAZIONI (data_inizio,data_fine,id_cliente,postazione_pren,data_pren,is_closed) values ('$dataInizioC','$dataFineC','$id_cliente','$postazione', NOW(), FALSE)";
+        $sql = "insert into PRENOTAZIONI (data_inizio,data_fine,id_cliente,postazione,data_pren,is_closed) values ('$dataInizioC','$dataFineC','$id_cliente','$postazione', NOW(), FALSE)";
 		
         $mysqli->query($sql);
 

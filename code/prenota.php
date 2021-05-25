@@ -87,7 +87,7 @@
 
 
         require("functions.php");
-
+        
         if(($appoggio = checkIfPcAvaiable($dataInizio, $oraInizio, $dataFine, $oraFine)) == -1){
             echo '<h5 style="margin-top: 30px;">Spiacente, per questa ora tutte le postazioni sono Prenotate</h5>';
             return;
