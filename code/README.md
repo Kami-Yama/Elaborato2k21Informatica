@@ -1,6 +1,6 @@
 ﻿***Documentation of The Site***
 
-*PS: The visuals of the site AREN'T DEVELOPED! This is just a prototype of the site just for making the customer understand how it will work.*
+*PS: The visuals of the site AREN'T DEVELOPED! This is just a prototype of the site just for making the client understand how it will work.*
 
 `index.html`: Home of the site. In here you can start seeing the various buttons and interact with the site. 
 
@@ -27,11 +27,5 @@
 `prenota.php`: Page of related to the prenotations of the site.
 
 `endPrenotazione.html`: Redirect page at the ending of a prenotation.
-
-`admin.php`: functions related to the adminPanel
-
-`adminPanel.php`: administrator panel, which you can access if you're in the array contained in `action.php`
-
-`adminStyles.css` : css for the administration Panel
 
 

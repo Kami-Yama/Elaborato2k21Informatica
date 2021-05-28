@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="generalStyles.css">
     <title>Coffee And Games - Login</title>
 </head>
 
@@ -30,23 +31,6 @@
     }
 
 ?>
-
-<style>
-    .contenitore{
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 100px;
-    }
-    .contenitore2{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-</style>
 
 <body class="w3-sand">
     <div class="contenitore2">

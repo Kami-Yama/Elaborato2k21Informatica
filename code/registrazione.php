@@ -10,20 +10,8 @@
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script src="help.js"></script>
     <title>Coffee And Games - Registrati</title>
+    <link rel="stylesheet" href="generalStyles.css">
 </head>
-
-<style>
-    .contenitore{
-        display: flex;
-        flex-direction: column;
-    }
-    .contenitore2{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-    }
-</style>
 
 <body class="w3-sand">
     <div class="contenitore2">
@@ -47,11 +35,8 @@
         <input id="email" class="w3-text" type="text" name="email" placeholder="Inserisci la tua Email" style="width:20%;" required>
         <label style="margin-top:20px;" class="w3-label">Telefono</label>
         <input id="telefono" class="w3-text" type="text" name="telefono" placeholder="Inserisci il tuo Numero di Telefono" style="width:20%;" required>
-        <label style="margin-top: 20px;" class="w3-label">Password</label>
-        <div>
-            <input id="password" type="password" name="password" placeholder="Inserisci la password da usare" style="width:20%" required>
-            <label class="w3-label">Deve essere compresa tra 6 e 20 caratteri senza contenere caratteri speciali.
-        </div>
+        <label style="margin-top: 20px;" class="w3-label">Password |Deve essere compresa tra 6 e 20 caratteri senza contenere caratteri speciali|</label>
+        <input id="password" type="password" name="password" placeholder="Inserisci la password da usare" style="width:20%" required>
         <label style="margin-top: 20px;" class="w3-label">Reinserisci la Password</label>
         <input id="password2" type="password" name="password2" placeholder="Reinserisci la password da usare" style="width:20%" required>
         <input style="margin-top: 30px;border:1px solid black; width:10%;" type="button" value="Registrati" class="w3-button" onclick="checkErrori()">

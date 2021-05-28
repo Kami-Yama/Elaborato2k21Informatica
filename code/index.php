@@ -1,11 +1,3 @@
-<?php
-
-    require("functions.php");
-    session_start();
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,54 +9,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <title>Coffee And Games - Main</title>
+    <link rel="stylesheet" href="generalStyles.css">
 </head>
 
-
-
-<style>
-    .flexbox{
-        display: flex; 
-        flex-direction: row; 
-        align-items: center;
-    }
-
-    .imglayout{
-        border: 3px solid rgba(0,0,0,0.1);
-        margin: 20px;
-    }
-    
-</style>
-
 <body class="w3-sand">
-    <header class="flexbox" style="justify-content: space-between;">
-        <div class="flexbox">
-            <h3 style="margin-left: 10px;">
-                Coffee And Games - Valdagno |
-            </h3>
-            <div class="w3-padding">
-                Per momenti fantastici, Insieme
-            </div>
-        </div>
-
-        <div>
-            
-        <?php
-            if((isset($_SESSION["emailUtente"]))){
-                if((time() - $_SESSION["sessionTime"]) < 3600){
-                    $righe = getLoginSessionInfo($_SESSION["emailUtente"]);
-                    echo "Benvenuto, <strong>$righe[0] $righe[1]</strong>";
-                }
-                else{                   
-                    session_destroy();
-                }
-            }
-            else{
-                echo "Non sei Loggato";
-            }
-        ?>
-            
-        </div>
-
+    <?php require("loginHeader.php");?>
         <div class="w3-padding">
             <a type="button" style="border:1px solid black;" class="w3-button" href="login.php">Prenota</a>
             <a type="button" style="border:1px solid black;" class="w3-button" href="about.html">Chi Siamo</a>
