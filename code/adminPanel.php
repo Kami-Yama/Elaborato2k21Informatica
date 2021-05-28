@@ -54,6 +54,10 @@
                     queryMonster($_GET["id"],$_GET["queryMonsterValue"]);                 
                 }
 
+                if(isset($_GET["prenConfirm"])){
+                    prenConfirm($_GET["id"]);         
+                }
+
                 if(isset($_GET["eventUserLinked"])){
                     querySlave($_GET["clientId"],$_GET["eventId"]);              
                 }
@@ -198,6 +202,15 @@
                         <input type="number" placeholder="Id" name="id" class="w3-input boxGrid" style="width:100px;" margin-top: 10px;">
                         <input type="submit" value="Chiudi" name="actionDone" class="w3-button boxGrid" style="margin-top:20px;">
                         <input type="hidden" value="2" name="queryMonsterValue"> 
+                        </form>';
+                        
+                    }
+                    if(isset($_GET["confirmPren"])){
+                        genTable(2);
+                        echo '<form action="" method="GET">
+                        <label style="margin-top: 20px;" class="w3-label">Inserisci l\'id della Prenotazione da Confermare</label>
+                        <input type="number" placeholder="Id" name="id" class="w3-input boxGrid" style="width:100px;" margin-top: 10px;">
+                        <input type="submit" value="Conferma" name="prenConfirm" class="w3-button boxGrid" style="margin-top:20px;">
                         </form>';
                         
                     }

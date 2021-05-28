@@ -17,18 +17,15 @@
         <div class="w3-padding">
             <a type="button" style="border:1px solid black;" class="w3-button" href="login.php">Prenota</a>
             <a type="button" style="border:1px solid black;" class="w3-button" href="about.php">Chi Siamo</a>
-            <a type="button" style="border:1px solid black;" class="w3-button" href="rules.php">Regole</a>
+            <a type="button" style="border:1px solid black;" class="w3-button" href="index.php">Home</a>
         </div>
     </header>
     <hr style="border: 1px solid black;">
 
     <div class="flexbox">
-        <img src="img/gamingbarback.jpg" style="margin-top: 100px;" class="imglayout">
         <div style="width: 100%;">
             <h3>
-                Unisciti a tutti gli Appassionati dell'Internet Valdagnesi per avventurarti in una nuova realtà, tutta nuova da scoprire!
-                Siamo <strong>Aperti</strong> dal <strong>Martedì alla Domenica,</strong> <strong>24 ore su 24!</strong>
-                <strong>Prenota</strong> subito su questo sito, <strong>cliccando il tasto in Alto a Destra!</strong>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint ea ab perferendis, beatae illum vitae commodi, repellendus debitis voluptate culpa incidunt neque quidem, placeat porro exercitationem. Eveniet consectetur eum minima cum debitis labore incidunt ratione distinctio est ipsam, commodi error accusantium ea voluptatem libero sequi rem omnis saepe odit. Architecto ab at praesentium commodi perferendis nisi, quaerat deleniti animi cumque voluptas tempore vel saepe cum accusamus? Aperiam ipsum obcaecati laborum explicabo, dolor laudantium sit soluta. Quod hic eos sint a, nam nostrum eligendi quisquam officiis ipsa magnam modi, laboriosam nulla sunt voluptate fuga placeat dolor consequatur provident deleniti saepe consequuntur!
             </h3>
         </div>
     </div>
@@ -37,7 +34,7 @@
         <nav>
             <a href="login.php">Prenota</a> |
             <a href="about.php">Chi Siamo</a> |
-            <a href="rules.php">Regole</a> |
+            <a href="index.php">Home</a> |
             <a href="login.php">Amministra</a>
           </nav> 
     </footer>

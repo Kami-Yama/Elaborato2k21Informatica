@@ -14,7 +14,7 @@ function genButtons($input){
             break;
         case 3:
             //genero i bottoni per la gestione delle prenotazioni
-            echo '<form action="" method="GET"><input type="submit" value="Chiudi una Prenotazione" name="removePren" class="w3-button boxGrid"><input type="hidden" name="amISet" value="default"></form>';
+            echo '<form action="" method="GET"><input type="submit" value="Chiudi una Prenotazione" name="removePren" class="w3-button boxGrid" style="margin-right: 20px;"><input type="submit" value="Conferma una Prenotazione" name="confirmPren" class="w3-button boxGrid"><input type="hidden" name="amISet" value="default"></form>';
             break;
         case 4:
             //genero i bottoni per la gestione delle presenze
@@ -219,6 +219,23 @@ function addPres($id_cliente,$isByod,$data_init,$data_fin,$ora_init,$ora_fin){
     else{
         header("Location: adminPanel.php?checkQuery=Azione Fallita! Hai Inserito dei Dati Validi?");
     }
+
+}
+
+function prenConfirm($id){
+
+    require("config.php");
+    $mysqli = new mysqli($host, $username, $password, $db_name);
+    $mysqli->set_charset("utf8");
+
+    $mysqli->query("INSERT INTO `presenze`(`id_cliente`, `data_inizio`, `data_fine`,`pres_isBYOD`) SELECT id_cliente, data_inizio, data_fine, 0 from prenotazioni where id_prenotazione = '$id'");
+    
+    if ( $mysqli->affected_rows > 0) {
+        header("Location: adminPanel.php?checkQuery=Azione Riuscita!");
+    }
+    else{
+        header("Location: adminPanel.php?checkQuery=Azione Fallita! Hai Inserito dei Dati Validi?");
+    }    
 
 }
 

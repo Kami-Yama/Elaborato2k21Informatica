@@ -52,7 +52,7 @@ create table PRESENZE(
     id_cliente INT NOT NULL,
     data_inizio TIMESTAMP NOT NULL DEFAULT NOW(),
     data_fine TIMESTAMP NOT NULL DEFAULT NOW(),
-    pres_isBYOD BOOLEAN NOT NULL,
+    pres_isBYOD BOOLEAN NOT NULL DEFAULT '1',
 
     foreign key(id_cliente) references CLIENTI (id_cliente)
 
