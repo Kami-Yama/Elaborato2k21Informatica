@@ -47,6 +47,9 @@ function genTable($nQuery){
         case 5:
             $risultato = $mysqli->query("select * from clienti where sospensione <> '0'");
             break;
+        case 6:
+            $risultato = $mysqli->query("select P.id_prenotazione,P.data_inizio,P.data_fine, C.nome,C.cognome, P.postazione,P.data_pren,P.is_closed from prenotazioni as P natural join clienti as C where is_closed <> '1'");
+            break;
     }
 
     echo '<div class="container"><table id="table" class="w3-table w3-bordered w3-border w3-striped">';

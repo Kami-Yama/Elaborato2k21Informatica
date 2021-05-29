@@ -206,7 +206,7 @@
                         
                     }
                     if(isset($_GET["confirmPren"])){
-                        genTable(2);
+                        genTable(6);
                         echo '<form action="" method="GET">
                         <label style="margin-top: 20px;" class="w3-label">Inserisci l\'id della Prenotazione da Confermare</label>
                         <input type="number" placeholder="Id" name="id" class="w3-input boxGrid" style="width:100px;" margin-top: 10px;">
