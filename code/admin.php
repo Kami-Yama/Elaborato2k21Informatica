@@ -36,7 +36,7 @@ function genTable($nQuery){
             $risultato = $mysqli->query("select * from clienti where sospensione <> '1'");
             break;
         case 2:
-            $risultato = $mysqli->query("select * from prenotazioni where is_closed <> '1'");
+            $risultato = $mysqli->query("select P.id_prenotazione,P.data_inizio,P.data_fine, C.nome,C.cognome, P.postazione,P.data_pren,P.is_closed from prenotazioni as P natural join clienti as C where is_closed <> '1'");
             break;
         case 3:
             $risultato = $mysqli->query("select id_evento, Tema from eventi where data_fine > NOW()");
@@ -46,9 +46,6 @@ function genTable($nQuery){
             break;
         case 5:
             $risultato = $mysqli->query("select * from clienti where sospensione <> '0'");
-            break;
-        case 6:
-            $risultato = $mysqli->query("select P.id_prenotazione,P.data_inizio,P.data_fine, C.nome,C.cognome, P.postazione,P.data_pren,P.is_closed from prenotazioni as P natural join clienti as C where is_closed <> '1'");
             break;
     }
 
