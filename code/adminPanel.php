@@ -1,7 +1,8 @@
 <?php
-    require("admin.php");
+    require("admin.php"); //require of admin.php
 ?>
 
+<!-- basic html head, with various imports-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +17,7 @@
     <title>Coffee And Games - Amministra</title>
 </head>
 
+<!-- start of the body-->
 <body class="w3-sand">
     <header class="flexbox" style="justify-content: space-between; align-items: center; height: 100px;">
         <h3 style="margin-left: 10px;">
@@ -28,6 +30,7 @@
         </div>
     </header>
 
+    <!-- main container of the page-->
     <div class="flexbox">
         <form action="" method="GET" class="grid">
             <input type="submit" value="Utenti" name="gestUtente" class="w3-button boxGrid">
@@ -43,9 +46,11 @@
     
             </input>
         </form>
+        <!-- start of the dynamic container of the page -->
         <div class="containerInfo boxGrid" style="height: 700px; width: 100%;">
             <?php
             
+                //various get methods. They check if something has been done, if else, they go forward. They are used to send the various data to the various functions in admin.php
                 if(isset($_GET["checkQuery"])){
                     echo $_GET["checkQuery"];
                 }
@@ -87,7 +92,7 @@
                     addResult($_GET["idResult"],$_GET["eventId"],$_GET["result"]);
                 }
 
-                //gestione del primo input relativo ai bottoni per le scelte da fare
+                //first input manager. Based on which button i pressed in the starting file, it sends it to genButtons
 
                 $input = 0;
                 if(isset($_GET["gestUtente"])){
@@ -105,8 +110,10 @@
 
                 genButtons($input);
 
+                //checks if the hidden attribute "amISet" is set. If it is, it starts searching for the form that it has to create, and it does it.
                 if(isset($_GET["amISet"])){
                     
+                    //creates the tables and the form for suspending an User
                     if(isset($_GET["removeUser"])){
                         genTable(1);
                         echo '<form action="" method="GET">
@@ -116,7 +123,7 @@
                         <input type="hidden" value="1" name="queryMonsterValue"> 
                         </form>';
                     }
-
+                    //creates the tables and the form for permitting a suspended user to use the site again
                     if(isset($_GET["ableUser"])){
                         genTable(5);
                         echo '<form action="" method="GET">
@@ -127,6 +134,7 @@
                         </form>';
                     }
 
+                    //creates the tables and the form for adding a new Event.
                     if(isset($_GET["addEvent"])){
                         echo '<form action="" method="GET">
                         <label style="margin-top: 20px;" class="w3-label">Inserisci il Tema dell\'Evento</label>
@@ -149,6 +157,7 @@
 
                         </form>';
                     }
+                    //creates the tables and the form for adding an User to an Event
                     if(isset($_GET["addEventUser"])){
                         genTable(1);
                         genTable(3);
@@ -160,6 +169,7 @@
                         <input type="submit" value="Inserisci Valore" name="eventUserLinked" class="w3-button boxGrid" style="margin-top:20px;">
                         </form>';
                     }
+                    //creates the tables and the form for confirm an user partecipation to an event
                     if(isset($_GET["addPart"])){
                         genTable(1);
                         genTable(3);
@@ -171,6 +181,7 @@
                         <input type="submit" value="Inserisci Partecipazione" name="addPartEnd" class="w3-button boxGrid" style="margin-top:20px;">
                         </form>';
                     }
+                    //creates the tables and the form to confirm an user entry-fee to an event
                     if(isset($_GET["addPayment"])){
                         genTable(1);
                         genTable(3);
@@ -182,6 +193,7 @@
                         <input type="submit" value="Inserisci Pagamento" name="addPay" class="w3-button boxGrid" style="margin-top:20px;">
                         </form>';
                     }
+                    //creates the tables and the form to confirm an user result in an event
                     if(isset($_GET["theResult"])){
                         genTable(1);
                         genTable(3);
@@ -195,6 +207,7 @@
                         <input type="submit" value="Inserisci Risultato" name="addResult" class="w3-button boxGrid" style="margin-top:20px;">
                         </form>';
                     }
+                    //creates the tables and the form to remove an user prenotation (since the client might have some trouble coming etc...)
                     if(isset($_GET["removePren"])){
                         genTable(2);
                         echo '<form action="" method="GET">
@@ -205,6 +218,7 @@
                         </form>';
                         
                     }
+                    //creates the tables and the form for confirming a prenotation and placing the presence
                     if(isset($_GET["confirmPren"])){
                         genTable(2);
                         echo '<form action="" method="GET">
@@ -214,6 +228,7 @@
                         </form>';
                         
                     }
+                    //creates the tables and the form for confirming a presence
                     if(isset($_GET["addPres"])){
                         genTable(1);
                         echo '<form action="" method="GET">
@@ -233,6 +248,7 @@
 
                         </form>';
                     }
+                    //creates the tables and the form to remove a presence
                     if(isset($_GET["removePres"])){
                         genTable(4);
                         echo '<form action="" method="GET">

@@ -1,3 +1,4 @@
+<!-- middle page used for choosing the action of the user -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +13,7 @@
     <title>Coffee And Games - Login</title>
 </head>
 
+
 <body class="w3-sand">
 
 <?php require("loginHeader.php");?>
@@ -25,7 +27,7 @@
         <a style="margin-top:30px;border:1px solid black;" type="button" class="w3-button" href="prenota.php">Prenota</a>
     
 <?php
-
+    //generates dinamically, if an user is an Admin, the "Admin" button
     if(isset($_SESSION["emailUtente"]) && checkIfAdmin($_SESSION["emailUtente"])){
         echo '<a style="margin-top:30px;border:1px solid black;" type="button" class="w3-button" href="adminPanel.php">Amministra</a>';
     }

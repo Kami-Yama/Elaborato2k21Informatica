@@ -1,3 +1,5 @@
+
+<!-- first html page of the project. Contains the various links to the prenotation etc... -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +15,7 @@
 </head>
 
 <body class="w3-sand">
+    <!-- login header standardized-->
     <?php require("loginHeader.php");?>
         <div class="w3-padding">
             <a type="button" style="border:1px solid black;" class="w3-button" href="login.php">Prenota</a>
@@ -22,6 +25,7 @@
     </header>
     <hr style="border: 1px solid black;">
 
+    <!-- main content of the page -->
     <div class="flexbox">
         <img src="img/gamingbarback.jpg" style="margin-top: 100px;" class="imglayout">
         <div style="width: 100%;">
@@ -32,6 +36,7 @@
             </h3>
         </div>
     </div>
+    <!-- simple footer -->
     <hr style="border: 1px solid black; margin-top: 100px;">
     <footer class="flexbox" style="justify-content: space-around;">
         <nav>

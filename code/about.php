@@ -1,3 +1,4 @@
+<!-- basic html head-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +12,7 @@
     <title>Coffee And Games - Main</title>
     <link rel="stylesheet" href="generalStyles.css">
 </head>
-
+<!--body and call of php sheet of loginHeader. It generates the header and the user session -->
 <body class="w3-sand">
     <?php require("loginHeader.php");?>
         <div class="w3-padding">
@@ -21,7 +22,7 @@
         </div>
     </header>
     <hr style="border: 1px solid black;">
-
+<!--main text container. It has all the info i want the page to contain-->
     <div class="flexbox">
         <div style="width: 100%;">
             <h3>
@@ -30,6 +31,7 @@
         </div>
     </div>
     <hr style="border: 1px solid black; margin-top: 100px;">
+    <!--simple footer -->
     <footer class="flexbox" style="justify-content: space-around;">
         <nav>
             <a href="login.php">Prenota</a> |

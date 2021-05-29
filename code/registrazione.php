@@ -1,3 +1,4 @@
+<!-- page used for registering an user in the database -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +15,7 @@
 </head>
 
 <body class="w3-sand">
+    <!-- no standard header here. It's the registration after all -->
     <div class="contenitore2">
         <h1 style="margin-left: 10px;">
             Registrati! <span style="font-size: 23px;">è gratis dopotutto...</span>
@@ -24,6 +26,7 @@
     <hr style="border:1px solid black;"></hr>
     <div id="errore">
     </div>
+    <!-- various data that will rappresent the user -->
     <form id="registra" action="" method="POST" class="contenitore" style="margin-left: 10px;">
         <label style="margin-top: 50px;" class="w3-label">Nome</label>
         <input id="nome" class="w3-text" type="text" name="nome" placeholder="Inserisci il tuo Nome" style="width:20%;" required>
@@ -44,6 +47,7 @@
 
 <?php
 
+    //when the forms submit, it will register the account
     require("functions.php");
     if(isset($_POST["password"])){
         registraAccount($_POST["nome"],$_POST["cognome"],$_POST["password"],$_POST["email"],$_POST["telefono"],$_POST["dataNasc"]);
@@ -55,6 +59,15 @@
 
 <script>
 
+    /*long story short. These are CLIENT INPUT CONTROLS, since i wanted to differentiate from the usual only server controls that are done the 90% of the time. Here, the big part of controls are done client side. This lets the user insert in the database silly things, but just for the sake of knowledge and just for this page, i decided to check them in this way.
+
+    pros of this checks
+    - Done in javascript, they are really useful to check things even beyond the usual client service. They can redirect the normal user to do decent choices
+
+    negatives of this checks
+    - the security of the site is in danger. In fact, in these checks i send all the emails to the client, so an expert hacker could understand how much user in the database i got and who are registered to the site. This is a HUGE bad practice to do in a site, but just for showing, i decided to let it happen. I would not normally do such checks in this way, but in this particular situation, it was needed.
+    SQL Injections are prevented the same, since i added at least basic controls in the server side
+    */
     function checkErrori(){
 
         const email = document.getElementById("email");
@@ -72,6 +85,7 @@
         var passw = /^[a-zA-Z0-9!@#$%^&*]{6,16}$/;
         var telefonoCheck = /^[0-9]{10}$/;
 
+        //all the various checks can be easily found here
         if(nome.value && nome.value != ""){
             console.log("ciao");
             if(cognome.value &&  cognome.value != ""){

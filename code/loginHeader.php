@@ -1,5 +1,6 @@
 <?php session_start();?>
 
+<!-- simple header of the page. used as a template for helping stabilizing the site and writing less code-->
 <header class="contenitore2">
     <div class="flexbox">
         <h3 style="margin-left: 10px;">

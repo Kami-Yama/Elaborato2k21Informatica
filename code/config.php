@@ -1,6 +1,6 @@
 <?php
 
-// file di config per gli esempi films_mysql#
+// config file for interacting with the database
 
     $host = "localhost";
     $username = "root";

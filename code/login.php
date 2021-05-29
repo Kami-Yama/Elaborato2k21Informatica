@@ -4,6 +4,7 @@
 
 ?>
 
+<!-- page used for the user to login thei accounts or to create a new one -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +21,7 @@
 
 <?php
 
+    //checks if the sessionTime of one hour it's still on. If not, then it will sign out the user
     if((isset($_SESSION["sessionTime"]))){
         if((time() - $_SESSION["sessionTime"]) < 3600){
             echo $_SESSION["emailUtente"];
@@ -32,6 +34,7 @@
 
 ?>
 
+<!-- main body of the page -->
 <body class="w3-sand">
     <div class="contenitore2">
         <div>
@@ -47,12 +50,13 @@
         <input type="password" name="password" placeholder="Inserisci la tua Password" style="width:20%" required>
         <input style="margin-top: 15px;border:1px solid black;" type="submit" value="Login" class="w3-button">
         <label class="w3-label" style="font-weight: bold; margin-top: 15px;">Non sei ancora registrato?</label>
-        <input style="margin-top: 15px;border:1px solid black;" type="button" value="Registrati" class="w3-button" onclick="registrati()">
+        <a href="registrazione.php" style="margin-top: 15px;border:1px solid black;"class="w3-button">Registrati</a>
     </form>
 </body>
 
 <?php
 
+    //controls if all the inputs of the user are matching with an already existing account. If they do, it logs the account
     require("functions.php");
     if(isset($_POST["email"]) && isset($_POST["password"])){
         if(checkIfLoginExists($_POST["email"],$_POST["password"])){
@@ -63,12 +67,4 @@
     }
 
 ?>
-<script>
-    function registrati(){
-        window.location.href = "registrazione.php";
-    }
-    function tornaIndietro(){
-        window.location.href = "index.html";
-    }
-</script>
 </html>

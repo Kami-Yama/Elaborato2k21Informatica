@@ -1,3 +1,5 @@
+-- SQL SCHEME;
+
 create table CLIENTI
 (
     id_cliente INT AUTO_INCREMENT NOT NULL primary key,

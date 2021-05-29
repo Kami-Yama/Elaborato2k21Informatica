@@ -1,5 +1,6 @@
 <?php
 
+//function that generates the various first inputs after the firs form of the adminPanel
 function genButtons($input){
 
     switch($input){
@@ -25,12 +26,14 @@ function genButtons($input){
 
 }
 
+//method that generates a table based on the type of query needed
 function genTable($nQuery){
 
     require("config.php");
     $mysqli = new mysqli($host, $username, $password, $db_name);
     $mysqli->set_charset("utf8");
 
+    //based on the number of the query needed, generates a table with the columns from different queries
     switch($nQuery){
         case 1:
             $risultato = $mysqli->query("select * from clienti where sospensione <> '1'");
@@ -49,6 +52,7 @@ function genTable($nQuery){
             break;
     }
 
+    //html table code
     echo '<div class="container"><table id="table" class="w3-table w3-bordered w3-border w3-striped">';
 
     // ciclo per visualizzare la riga di intestazione della tabella con i nomi dei campi
@@ -60,6 +64,7 @@ function genTable($nQuery){
 
     echo '</tr></thead><tbody>';
 
+    //dynamic generation of the rows of the table
     while ($riga = $risultato->fetch_row())
     {
         echo '<tr>';
@@ -72,6 +77,7 @@ function genTable($nQuery){
     $risultato->close();
 }
 
+//custom method that gets an id and, based on the number of the query, does something. It recycles a lot of code and permits me to use do all the queries in one spot instead of building a lot of different functions
 function queryMonster($id,$queryNumber){
 
     require("config.php");
@@ -81,6 +87,7 @@ function queryMonster($id,$queryNumber){
     $mysqli = new mysqli($host, $username, $password, $db_name);
     $mysqli->set_charset("utf8");
 
+    //switch that contains the query
     switch($queryNumber){
         case 1:
             $mysqli->query("UPDATE clienti SET sospensione = '1' WHERE id_cliente = '$id'");
@@ -96,6 +103,7 @@ function queryMonster($id,$queryNumber){
             break;
     }
 
+    //feedback of success. If the query is successfull, it returns in the $_GET Array a positive feedback, if not, negative
     if ( $mysqli->affected_rows > 0) {
         header("Location: adminPanel.php?checkQuery=Azione Riuscita!");
     }
@@ -105,6 +113,7 @@ function queryMonster($id,$queryNumber){
 
 }
 
+//random function method. I'm really cheap with names, dunno how i came up with this one
 function querySlave($id_cliente, $id_evento){
 
     require("config.php");
@@ -115,7 +124,8 @@ function querySlave($id_cliente, $id_evento){
     $mysqli->set_charset("utf8");
 
     $mysqli->query("INSERT INTO `partecipanti`(`id_evento`, `id_cliente`, `haPagato`, `haPartecipato`, `posizionamento`) VALUES ($id_evento,$id_cliente,FALSE,FALSE,-1)");
-
+    
+    //feedback of success. If the query is successfull, it returns in the $_GET Array a positive feedback, if not, negative
     if ( $mysqli->affected_rows > 0) {
         header("Location: adminPanel.php?checkQuery=Azione Riuscita!");
     }
@@ -124,6 +134,7 @@ function querySlave($id_cliente, $id_evento){
     }
 }
 
+//function of adding an event. Receives all the inputs and insert them in the database
 function addEvento($tema, $descrizione, $premio, $ingresso, $data_init, $data_fine,$ora_init,$ora_end){
 
     require("config.php");
@@ -136,6 +147,8 @@ function addEvento($tema, $descrizione, $premio, $ingresso, $data_init, $data_fi
 
     $mysqli->query("INSERT INTO `eventi`(`premio`, `prezzo_ing`, `data_inizio`, `data_fine`,`tema`,`descrizione`) VALUES ('$premio','$ingresso','$data_start','$data_end','$tema','$descrizione')");
 
+    
+    //feedback of success. If the query is successfull, it returns in the $_GET Array a positive feedback, if not, negative
     if ( $mysqli->affected_rows > 0) {
         header("Location: adminPanel.php?checkQuery=Azione Riuscita!");
     }
@@ -145,6 +158,7 @@ function addEvento($tema, $descrizione, $premio, $ingresso, $data_init, $data_fi
 
 }
 
+//functions that add a partecipation to the event based on the two id that it gets
 function addPart($id_part,$id_evento){
 
     require("config.php");
@@ -156,6 +170,8 @@ function addPart($id_part,$id_evento){
 
     $mysqli->query("UPDATE partecipanti SET haPartecipato = '1' WHERE id_cliente = '$id_part' AND id_evento = '$id_evento'");
 
+    
+    //feedback of success. If the query is successfull, it returns in the $_GET Array a positive feedback, if not, negative
     if ( $mysqli->affected_rows > 0) {
         header("Location: adminPanel.php?checkQuery=Azione Riuscita!");
     }
@@ -164,6 +180,7 @@ function addPart($id_part,$id_evento){
     }
 }
 
+//function that confirms a payment based on the two id that it gets
 function addPayment($id_payment,$id_evento){
 
     require("config.php");
@@ -175,6 +192,8 @@ function addPayment($id_payment,$id_evento){
 
     $mysqli->query("UPDATE partecipanti SET haPagato = '1' WHERE id_cliente = '$id_payment' AND id_evento = '$id_evento'");
 
+    
+    //feedback of success. If the query is successfull, it returns in the $_GET Array a positive feedback, if not, negative
     if ( $mysqli->affected_rows > 0) {
         header("Location: adminPanel.php?checkQuery=Azione Riuscita!");
     }
@@ -183,6 +202,7 @@ function addPayment($id_payment,$id_evento){
     }
 }
 
+//function that adds a result in an event, based on the id that it gets and the placement of the partecipant
 function addResult($id_result,$id_evento,$risultato){
 
     require("config.php");
@@ -194,6 +214,8 @@ function addResult($id_result,$id_evento,$risultato){
 
     $result = $mysqli->query("UPDATE partecipanti SET posizionamento = '$risultato' WHERE id_cliente = '$id_result' AND id_evento = '$id_evento'");
     
+    
+    //feedback of success. If the query is successfull, it returns in the $_GET Array a positive feedback, if not, negative
     if ( $mysqli->affected_rows > 0) {
         header("Location: adminPanel.php?checkQuery=Azione Riuscita!");
     }
@@ -202,6 +224,7 @@ function addResult($id_result,$id_evento,$risultato){
     }
 }
 
+//adds a presence to the database. Essential if something bad happens, since you can exactly know who was in the bar at the moment of the accident
 function addPres($id_cliente,$isByod,$data_init,$data_fin,$ora_init,$ora_fin){
 
     $data_start = $data_init." ".$ora_init;
@@ -213,6 +236,8 @@ function addPres($id_cliente,$isByod,$data_init,$data_fin,$ora_init,$ora_fin){
 
     $mysqli->query("INSERT INTO `presenze`(`id_cliente`, `data_inizio`, `data_fine`,`pres_isBYOD`) VALUES ('$id_cliente','$data_start','$data_end','$isByod')");
     
+    
+    //feedback of success. If the query is successfull, it returns in the $_GET Array a positive feedback, if not, negative
     if ( $mysqli->affected_rows > 0) {
         header("Location: adminPanel.php?checkQuery=Azione Riuscita!");
     }
@@ -222,6 +247,7 @@ function addPres($id_cliente,$isByod,$data_init,$data_fin,$ora_init,$ora_fin){
 
 }
 
+//function that confirms a prenotation. Very useful for automating the presences that are done online
 function prenConfirm($id){
 
     require("config.php");
@@ -230,6 +256,8 @@ function prenConfirm($id){
 
     $mysqli->query("INSERT INTO `presenze`(`id_cliente`, `data_inizio`, `data_fine`,`pres_isBYOD`) SELECT id_cliente, data_inizio, data_fine, 0 from prenotazioni where id_prenotazione = '$id'");
     
+    
+    //feedback of success. If the query is successfull, it returns in the $_GET Array a positive feedback, if not, negative
     if ( $mysqli->affected_rows > 0) {
         header("Location: adminPanel.php?checkQuery=Azione Riuscita!");
     }

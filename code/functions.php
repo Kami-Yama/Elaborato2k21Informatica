@@ -1,5 +1,6 @@
 <?php
 
+//registers an Account into the database
 function registraAccount($nomeSan,$cognomeSan, $passwordSan, $emailSan, $numeroTelSan, $dataNascSan){
 
     require("config.php");
@@ -28,6 +29,7 @@ function registraAccount($nomeSan,$cognomeSan, $passwordSan, $emailSan, $numeroT
     header("Location: endRegister.html");
 }
 
+//gets all the emails of the database to confirm that the email previously inserted by the user isn't already signed it
 function getAllEmailJSON()
 {
     require("config.php");
@@ -43,8 +45,7 @@ function getAllEmailJSON()
     $mysqli->close();
 }
 
-
-
+//checks if the account exist. Used to perform the login
 function checkIfLoginExists($email, $passwordSend){
 
     require("config.php");
@@ -77,6 +78,7 @@ function checkIfLoginExists($email, $passwordSend){
 
 }
 
+//checks if the user is registered as admin. Can receive improvements, done for the limited time
 function checkIfAdmin($emailUtente){
 
     $utentiAdmin = array(
@@ -92,6 +94,7 @@ function checkIfAdmin($emailUtente){
 
 }
 
+//check if the Login session isn't done for
 function checkIfLoginAvaiable(){
 
     $check = false;
@@ -108,6 +111,7 @@ function checkIfLoginAvaiable(){
 
 }
 
+//gets name and surname of the account
 function getLoginSessionInfo($emailCheck){
     
 
@@ -125,6 +129,7 @@ function getLoginSessionInfo($emailCheck){
 
 }
 
+//checks if there are any computers avaiable. If not, then you cannot prenotate.
 function checkIfPcAvaiable($data,$ora,$dataF,$oraF){
 
     require("config.php");
@@ -142,6 +147,7 @@ function checkIfPcAvaiable($data,$ora,$dataF,$oraF){
     
 }
 
+//insert a prenotation into the database
 function insertPren($dataInizio,$oraInizio,$dataFine,$oraFine,$postazione){
     require("config.php");
     //sanitize input
@@ -167,6 +173,7 @@ function insertPren($dataInizio,$oraInizio,$dataFine,$oraFine,$postazione){
     header("Location: endPrenotazione.html");
 }
 
+//gets the id of the client based on the email
 function getIdBySession(){
 
     session_start();

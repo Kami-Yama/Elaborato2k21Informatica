@@ -1,3 +1,5 @@
+
+<!-- very basic page. See "about.php" -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
