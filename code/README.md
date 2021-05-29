@@ -41,6 +41,6 @@
 
 ***What do i have to Know About the Code***
 
-This specific code has been done without caring for the aesthetics of the site. In fact, i am a Developer, not a Designer. `I inserted only the **basic** aesthetics` to not make the site figure out so bad. It's normal to find some strange things, some elements put in the wrong order etc... But the important thing it's to see the work done behind and the various scripts and queries done with the database and the relative interaction that it has led to. I repeat it once more, `it is not the work of a designer, but of a Developer`.
+This specific code has been done without caring for the aesthetics of the site. In fact, i am a Developer, not a Designer. `I inserted only the basic aesthetics` to not make the site figure out so bad. It's normal to find some strange things, some elements put in the wrong order etc... But the important thing it's to see the work done behind and the various scripts and queries done with the database and the relative interaction that it has led to. I repeat it once more, `it is not the work of a designer, but of a Developer`.
 
 
