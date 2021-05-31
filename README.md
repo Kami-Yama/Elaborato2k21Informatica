@@ -20,3 +20,5 @@ Il candidato, fatte le opportune ipotesi aggiuntive, sviluppi tutti i seguenti p
 5.  *modello concettuale e logico del database;* 
 6.  *implementazione dello schema logico mediante linguaggio SQL.*
 7. *Implementi una parte significativa del progetto sia per quanto riguarda l’applicazione web (o App per dispositivi mobili Android o IoS), sia per quanto riguarda la configurazione dei servizi e dispositivi di rete.*
+
+Ended
